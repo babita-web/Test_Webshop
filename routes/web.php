@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'ProductsController@index');
+//Route::get('/', 'ProductsController@index');
 
-Route::get('/addcart/{id}','ProductsController@add_cart');
-Route::get('/cart', 'ProductsController@cart');
+//Route::get('/addcart/{id}','ProductsController@add_cart');
+//Route::get('/cart', 'ProductsController@cart');
 
 
 
-Route::put('/add_cart/{id}', 'ProductsController@added');
-Route::delete('/delete/{id}', 'ProductsController@delete');
-Route::get('/register','ProductsController@create');
+//Route::put('/add_cart/{id}', 'ProductsController@added');
+//Route::delete('/delete/{id}', 'ProductsController@delete');
+//Route::get('/register','ProductsController@create');
 
 
 
@@ -33,7 +33,7 @@ Route::get('/register','ProductsController@create');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
 
-    Route::get('/admin', function () {
+    Route::get('/', function () {
         return view('admin.dashboard');
     });
 
@@ -56,10 +56,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/create-user','Admin\UserController@create');
 });
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
